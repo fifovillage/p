@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<title></title>
+<style>
+*{line-height:25px;}
+</style>
+
+<script src="http://www.ohlongjohn.com/d3.min.js" charset="utf-8"></script>
+
+<body>
+	<script>	
+	//treeData.json
+	//hierarchal relationships
+
+var	h = window.innerHeight * .9
+var	w = window.innerWidth * .9
+	
+var	svg = d3.select('body').append('svg')
+			.attr('width', w)
+			.attr('height', h)
+			.style('background', 'black')
+			.append('g')
+			.attr('transform', 'translate(50,50)')
+
+			
+var tree = d3.layout.tree()
+			.size([400,400])
+		
+		
+		d3.json('treeData.json', function (data){
+		
+			var nodes = tree.nodes(data) //creates an array of nodes from your data
+			console.log(nodes) //check it out in the console. very good
+			
+			var links = tree.links(nodes) //creates lines between nodes
+			console.log(links) //HOW BOUT IT
+			
+			var diagonal = d3.svg.diagonal()
+				.projection(function (d) {return [d.x, d.y] })
+					
+					
+			var node = svg.selectAll('.node') //select all the node class
+			.data(nodes) 
+			.enter()
+			.append('g')
+				.attr('class', 'node')
+				.attr('transform', function (d){ return 'translate(' +d.x + ',' + d.y + ')'}) //how it know where to go
+				
+			
+			node.append('circle') //add the circles to node group
+					.attr('r', 7)
+					.attr('fill', 'rgba(190,190,190,.8)')
+					
+			node.append('text') //add the text to node group
+					.attr('fill', 'white')
+					.style('font', '18px verdana')
+					.text(function (d) { return d.name }) //how it know where to go
+
+			svg.selectAll('.link') //create paths between links
+					.data(links)
+					.enter()
+					.append('path')
+						.attr('class', 'link')
+						.attr('fill', 'none')
+						.attr('stroke', 'rgba(120,200,120, .4)')
+						.attr('stroke-width', 3)
+						.attr('d', diagonal) //load data from diagonal variable above
+		
+		
+		
+		})
+
+	
+	</script>
+</body>
+</html>

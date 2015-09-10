@@ -1,0 +1,64 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+  <link href="stylesheet.css" rel="stylesheet">
+  <script src="http://www.ohlongjohn.com/d3.min.js" charset="utf-8"></script>
+  <title></title>
+  <script>	function isNumberKey(evt){
+  		var charCode = (evt.which) ? evt.which : evt.keyCode;
+  		if (charCode > 31 && (charCode < 48 || charCode > 57))
+  			return false;
+  		return true;
+  	}</script>
+</head>
+
+<body>
+  <div class="navbar navbar-default navbar-inverse">
+    <div class="container">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="./">
+            <span class="glyphicon glyphicon-home"></span> home</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Interactive D3.js Pie Chart</h2>
+  <div class="container">
+    <div class="chart">
+    <script src="pies.js"></script>
+  </div>
+  </div>
+
+<p>
+  <form name="dataInputs" id="dataInputs">
+    <p id="info1">Sample 1</p>
+    <input type="numbers" name="field1" id="sample1" value="50" maxlength="3" size="9" onkeypress="return isNumberKey(event)">
+
+    <p id="info2">Sample 2</p>
+    <input type="numbers" name="field2" id="sample2" value="70" maxlength="3" size="9" onkeypress="return isNumberKey(event)">
+
+    <p id="info3">Sample 3</p>
+    <input type="numbers" name="field3" id="sample3" value="80" maxlength="3" size="9" onkeypress="return isNumberKey(event)">
+
+    <p id="info4">Sample 4</p>
+    <input type="numbers" name="field4" id="sample4" value="90" maxlength="3" size="9" onkeypress="return isNumberKey(event)">
+
+    <p id="info4">Sample 5</p>
+    <input type="numbers" name="field4" id="sample5" value="120" maxlength="3" size="9" onkeypress="return isNumberKey(event)">
+  </p>
+
+    <input type="button" name="button" id="button" value="Display Data" onClick="draw()">
+
+  </form>
+</body>
+
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+</html>

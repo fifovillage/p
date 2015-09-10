@@ -1,0 +1,51 @@
+body{
+  text-align:center;
+  }
+
+.tiles {
+  margin: 0 4%
+}
+
+.jumbotron{
+  background: rgb(34,34,34);
+  color: rgb(100,100,100)
+}
+
+.well {
+  border-radius: 0px;
+}
+
+.thumbnail {
+  border: 1px solid black;
+  width: 95%;
+  border-radius: 0px;
+  margin: 0 auto;
+}
+
+.smlink {
+  max-width: 30px;
+  margin-bottom: 20px
+}
+
+.right {
+  text-align: right
+}
+
+.return {
+  text-align: left
+}
+
+.navbar-nav > li > a, .navbar-brand {
+    padding-top:4px !important;
+    padding-bottom:0 !important;
+    height: 28px;
+}
+.navbar {min-height:28px !important;}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,.9);
+}
